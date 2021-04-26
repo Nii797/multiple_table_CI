@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Package</title>
+	<title>Paket</title>
 	<!--Load CSS File-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.css');?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap-select.css');?>">
 </head>
 <body>
 	<div class="container">
-		<h1>Package Lists</h1>
-		<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Add New Package</button><br/>
+		<h1>Lis Paket</h1>
+		<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal">Tambah Paket Baru</button><br/>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Package Name</th>
-					<th>Created At</th>
-					<th>Item Product</th>
-					<th>Action</th>
+					<th>Nama Paket</th>
+					<th>Buat di</th>
+					<th>Item Produk</th>
+					<th>Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,8 +32,8 @@
 					<td><?php echo $row->package_created_at;?></td>
 					<td><?php echo $row->item_product.' Items';?></td>
 					<td>
-						<a href="#" class="btn btn-info btn-sm update-record" data-package_id="<?php echo $row->package_id;?>" data-package_name="<?php echo $row->package_name;?>">Edit</a>
-						<a href="#" class="btn btn-danger btn-sm delete-record" data-package_id="<?php echo $row->package_id;?>">Delete</a>
+						<a href="#" class="btn btn-info btn-sm update-record" data-package_id="<?php echo $row->package_id;?>" data-package_name="<?php echo $row->package_name;?>">Ubah</a>
+						<a href="#" class="btn btn-danger btn-sm delete-record" data-package_id="<?php echo $row->package_id;?>">Hapus</a>
 					</td>
 				</tr>
 				<?php endforeach;?>
@@ -48,7 +48,7 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Add New Package</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Tambah Paket Baru</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -56,13 +56,13 @@
 		      <div class="modal-body">
 
 				<div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Package</label>
+				    <label class="col-sm-2 col-form-label">Paket</label>
 				    <div class="col-sm-10">
 				      <input type="text" name="package" class="form-control" placeholder="Package Name" required>
 				    </div>
 				</div>
 				<div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Product</label>
+				    <label class="col-sm-2 col-form-label">Produk</label>
 				    <div class="col-sm-10">
 				      	<select class="bootstrap-select" name="product[]" data-width="100%" data-live-search="true" multiple required>
 				      		<?php foreach ($product->result() as $row) :?>
@@ -74,8 +74,8 @@
 
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-		        <button type="submit" class="btn btn-success btn-sm">Save</button>
+		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+		        <button type="submit" class="btn btn-success btn-sm">Simpan</button>
 		      </div>
 		    </div>
 		  </div>
@@ -88,7 +88,7 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Update Package</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Update Paket</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
@@ -96,13 +96,13 @@
 		      <div class="modal-body">
 
 				<div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Package</label>
+				    <label class="col-sm-2 col-form-label">Paket</label>
 				    <div class="col-sm-10">
 				      <input type="text" name="package_edit" class="form-control" placeholder="Package Name" required>
 				    </div>
 				</div>
 				<div class="form-group row">
-				    <label class="col-sm-2 col-form-label">Product</label>
+				    <label class="col-sm-2 col-form-label">Produk</label>
 				    <div class="col-sm-10">
 				      	<select class="bootstrap-select strings" name="product_edit[]" data-width="100%" data-live-search="true" multiple required>
 				      		<?php foreach ($product->result() as $row) :?>
@@ -115,8 +115,8 @@
 		      </div>
 		      <div class="modal-footer">
 		      	<input type="hidden" name="edit_id" required>
-		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-		        <button type="submit" class="btn btn-success btn-sm">Update</button>
+		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tutup</button>
+		        <button type="submit" class="btn btn-success btn-sm">Ubah</button>
 		      </div>
 		    </div>
 		  </div>
@@ -130,20 +130,20 @@
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Delete Package</h5>
+		        <h5 class="modal-title" id="exampleModalLabel">Hapus Paket</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          <span aria-hidden="true">&times;</span>
 		        </button>
 		      </div>
 		      <div class="modal-body">
 
-				<h4>Are you sure to delete this package?</h4>
+				<h4>Apa kau yakin untuk menghapus paket ini?</h4>
 
 		      </div>
 		      <div class="modal-footer">
 		      	<input type="hidden" name="delete_id" required>
-		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
-		        <button type="submit" class="btn btn-success btn-sm">Yes</button>
+		        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Tidak</button>
+		        <button type="submit" class="btn btn-success btn-sm">Ya</button>
 		      </div>
 		    </div>
 		  </div>

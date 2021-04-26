@@ -3,19 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Package extends CI_Controller{
 	
+	// fungsi construct
 	function __construct(){
 		parent::__construct();
 		$this->load->model('Package_model','package_model');
 	}
 
-	// READ
+	// Untuk membaca data produk dan paket 
 	function index(){
 		$data['product'] = $this->package_model->get_products();
 		$data['package'] = $this->package_model->get_packages();
 		$this->load->view('package_view',$data);
 	}
 
-	//CREATE
+	// membuat sekaligus produk dan paket
 	function create(){
 		$package = $this->input->post('package',TRUE);
 		$product = $this->input->post('product',TRUE);
@@ -23,6 +24,7 @@ class Package extends CI_Controller{
 		redirect('package');
 	}
 
+	// memanggil tabel produk dan paket
 	function get_product_by_package(){
 		$package_id=$this->input->post('package_id');
     	$data=$this->package_model->get_product_by_package($package_id)->result();
@@ -32,7 +34,7 @@ class Package extends CI_Controller{
     	echo json_encode($value);
 	}
 
-	//UPDATE
+	// mengubah data paket dan produk
 	function update(){
 		$id = $this->input->post('edit_id',TRUE);
 		$package = $this->input->post('package_edit',TRUE);
@@ -41,7 +43,7 @@ class Package extends CI_Controller{
 		redirect('package');
 	}
 
-	// DELETE
+	// data paket dan produk
 	function delete(){
 		$id = $this->input->post('delete_id',TRUE);
 		$this->package_model->delete_package($id);
